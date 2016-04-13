@@ -1,7 +1,9 @@
 # coding: utf-8
 
+import json
 import random
 from flask import Flask
+from flask import Response
 
 messages = [
     '修了修了别再催我了',
@@ -35,3 +37,8 @@ app = Flask(__name__)
 @app.route('/')
 def index():
     return '%s\n' % random.choice(messages)
+
+
+@app.route('/_all')
+def list_all():
+    return Response(json.dumps(messages), mimetype='application/json')
