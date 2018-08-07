@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://unpkg.com/clipboard@2.0.0/dist/clipboard.min.js"></script>
+    <script src="https://unpkg.com/popper.js@1.14.3/dist/umd/popper.min.js"></script>
+    <title>Commit Log as a Service</title>
+    <style>
+        .cl-copy-container {
+            overflow: hidden;
+        }
+        .cl-copy {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Commit Log as a Service</h1>
+            <p class="lead cl-copy-container">
+                <span id="cl-text">{{ message }}</span>
+                <button type="button" class="btn btn-link cl-copy" data-clipboard-text="{{ message }}">
+                    点一下, 复制这条
+                </button>
+                <script>
+                    (function() {
+                        var clip = new ClipboardJS('[data-clipboard-text]');
+                        clip.on('success', function(e) {
+                            e.trigger.innerText = ' (嗯… 复制好了';
+                        });
+                    })();
+                </script>
+            </p>
+            <hr class="my-4">
+            <p>打开你的 <code>~/.gitconfig</code> 然后:</p>
+            <pre>
+[alias]
+wtf = "!git commit -m \"$(curl -L -s https://commitlog.wolege.ca)\""</pre>
+            <p>
+                记得转义双引号一定不能去掉, 因为这坑货自己会去掉双引号…
+                下次提交就敲 <kbd>git wtf</kbd> 看看你的老板多久会打死你。</p>
+            <p>你的老板:</p>
+            <p>
+                <img src="https://media.giphy.com/media/xl1ZjZKjsd1UHeMa2E/giphy.gif" alt="What?!!" width="100" height="93">
+            </p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="{{ request.path }}" role="button">刷新下, 换一条</a>
+            <a class="btn btn-secondary btn-lg" href="https://github.com/tonicbupt/commitlog" role="button" target="_blank">看下代码</a>
+        </div>
+    </div>
+</body>
+</html>
