@@ -1,6 +1,7 @@
 FROM python
 RUN pip install pip --upgrade
 ADD commitlog /commitlog
+ADD requirements.txt /commitlog/requirements.txt
 WORKDIR /commitlog
 RUN pip install -r ./requirements.txt
 EXPOSE 5000
