@@ -7,12 +7,10 @@
 ```
 $ cat ~/.gitconfig
 [alias]
-    wtf = !git commit -m"\"`curl -L -s https://commitlog.wolege.ca`"\"
+    wtf = !git commit -m"$(curl -L -s https://commitlog.wolege.ca)"
 
 $ git wtf
 [master (root-commit) 8a4796c] 打错字了
  1 file changed, 0 insertions(+), 0 deletions(-)
   create mode 100644 aaa
 ```
-
-**NOTE: .gitconfig 里的转义双引号一定不能去掉, 因为这坑货自己会去掉双引号...**
