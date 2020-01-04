@@ -12,4 +12,4 @@ jinja2==2.10              # via flask
 markupsafe==1.0           # via jinja2
 python-dotenv==0.9.1
 simplejson==3.16.0
-werkzeug==0.14.1          # via flask
+werkzeug==0.15.3          # via flask
