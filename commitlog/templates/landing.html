@@ -44,7 +44,7 @@ wtf = "!git commit -m \"$(curl -L -s https://commitlog.wolege.ca)\""</pre>
                 下次提交就敲 <kbd>git wtf</kbd> 看看你的老板多久会打死你。</p>
             <p>你的老板:</p>
             <p>
-                <img src="https://media.giphy.com/media/xl1ZjZKjsd1UHeMa2E/giphy.gif" alt="What?!!" width="100" height="93">
+                <img src="{{ url_for('static', filename='what-the-duck.gif') }}" alt="What?!!" width="100" height="93">
             </p>
             <hr class="my-4">
             <a class="btn btn-primary btn-lg" href="{{ request.path }}" role="button">刷新下, 换一条</a>
