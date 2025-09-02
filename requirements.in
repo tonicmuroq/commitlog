@@ -1,4 +1,0 @@
-flask
-simplejson
-gunicorn
-python-dotenv

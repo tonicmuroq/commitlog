@@ -1,6 +1,5 @@
-*.py[co]
-eru.egg-info/*
-local_settings.py
-local_config.py
-tests/__pycache__/*
 .env
+.wrangler
+target
+build
+node_modules

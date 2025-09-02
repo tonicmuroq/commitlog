@@ -7,7 +7,7 @@
 ```
 $ cat ~/.gitconfig
 [alias]
-    wtf = "!git commit -m \"$(curl -L -s https://commitlog.wolege.ca)\""
+    wtf = "!git commit -m \"$(curl -L -s https://commitlog.muroq.app)\""
 
 $ git wtf
 [master (root-commit) 8a4796c] 打错字了
